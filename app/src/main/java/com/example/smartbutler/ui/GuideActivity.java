@@ -1,5 +1,6 @@
 package com.example.smartbutler.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.smartbutler.MainActivity;
 import com.example.smartbutler.R;
 import com.example.smartbutler.utils.L;
 
@@ -24,7 +26,7 @@ import java.util.List;
  * 创建时间    2019/5/18 21:19
  * 描述：      TODO
  */
-public class GuideActivity extends AppCompatActivity {
+public class GuideActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewPager mViewPager;
     //容器
@@ -48,6 +50,7 @@ public class GuideActivity extends AppCompatActivity {
         point2 = findViewById(R.id.point_2);
         point3 = findViewById(R.id.point_3);
 
+
         //默认point是on的状态
         setPointImg(true,false,false);
 
@@ -56,6 +59,8 @@ public class GuideActivity extends AppCompatActivity {
         view1 = View.inflate(this,R.layout.pager_item_one,null);
         view2 = View.inflate(this,R.layout.pager_item_tow,null);
         view3 = View.inflate(this,R.layout.pager_item_three,null);
+
+        view3.findViewById(R.id.btn_start).setOnClickListener(this);
 
         mlist.add(view1);
         mlist.add(view2);
@@ -97,6 +102,17 @@ public class GuideActivity extends AppCompatActivity {
 
             }
         });
+    }
+    //点击事件
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.btn_start:
+                startActivity(new Intent(GuideActivity.this,MainActivity.class));
+                break;
+            default:
+                break;
+        }
     }
 
     class GuideAdapter extends PagerAdapter{

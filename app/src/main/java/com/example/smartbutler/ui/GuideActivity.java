@@ -34,6 +34,8 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     private View view1,view2,view3;
     //小圆点
     private ImageView point1,point2,point3;
+    //跳过
+    private ImageView iv_jump;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     }
     //初始化View
     private void initView() {
+
+        iv_jump = findViewById(R.id.iv_jump);
+        iv_jump.setOnClickListener(this);
 
         point1 = findViewById(R.id.point_1);
         point2 = findViewById(R.id.point_2);
@@ -83,14 +88,17 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                     case 0:
                         //设置默认的图片
                         setPointImg(true,false,false);
+                        iv_jump.setVisibility(View.VISIBLE);
                         break;
                     case 1:
                         //设置默认的图片
                         setPointImg(false,true,false);
+                        iv_jump.setVisibility(View.VISIBLE);
                         break;
                     case 2:
                         //设置默认的图片
                         setPointImg(false,false,true);
+                        iv_jump.setVisibility(View.GONE);
                         break;
                         default:
                             break;
@@ -109,6 +117,11 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         switch(v.getId()){
             case R.id.btn_start:
                 startActivity(new Intent(GuideActivity.this,MainActivity.class));
+                finish();
+                break;
+            case R.id.iv_jump:
+                startActivity(new Intent(GuideActivity.this,MainActivity.class));
+                finish();
                 break;
             default:
                 break;

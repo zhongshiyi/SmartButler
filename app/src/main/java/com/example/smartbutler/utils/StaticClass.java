@@ -11,5 +11,8 @@ package com.example.smartbutler.utils;
 public class StaticClass {
     //闪屏页的延时
     public static final int HANDLER_SPLASH = 1001;
+    //判断程序是不是第一次运送
     public static final String SHARE_IS_FIRST = "isFirst";
+    //Bugly AppId
+    public static final String BUGLY_APP_ID = "4cf6b7040e";
 }

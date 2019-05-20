@@ -21,6 +21,7 @@ import com.example.smartbutler.fragment.WeChatFragment;
 import com.example.smartbutler.ui.SettingActivity;
 import com.example.smartbutler.utils.L;
 import com.example.smartbutler.utils.ShareUtils;
+import com.tencent.bugly.crashreport.CrashReport;
 
 
 import java.util.ArrayList;
@@ -50,8 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initData();
         initView();
 
-
-
+        
     }
 
     //初始化数据

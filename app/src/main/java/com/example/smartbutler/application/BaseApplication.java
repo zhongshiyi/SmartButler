@@ -5,6 +5,8 @@ import android.app.Application;
 import com.example.smartbutler.utils.StaticClass;
 import com.tencent.bugly.crashreport.CrashReport;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * 项目名：    SmartButler
  * 包名：      com.example.smartbutler.ui
@@ -21,5 +23,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         //初始化Bugly
         CrashReport.initCrashReport(getApplicationContext(), StaticClass.BUGLY_APP_ID, true);
+        //初始化Bmob
+        Bmob.initialize(this, StaticClass.BMOB_APP_ID);
     }
 }

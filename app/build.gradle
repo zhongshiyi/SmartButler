@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    //Bomb的依赖文件
+    useLibrary 'org.apache.http.legacy'
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.smartbutler"
@@ -35,4 +38,6 @@ dependencies {
     implementation 'com.tencent.bugly:crashreport:latest.release'
     //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    //Bmob
+    implementation 'cn.bmob.android:bmob-sdk:3.5.0'
 }

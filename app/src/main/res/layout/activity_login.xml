@@ -17,19 +17,20 @@
             android:src="@mipmap/ic_launcher" />
 
         <EditText
-            android:id="@+id/edit_user"
+            android:id="@+id/et_name"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="用户名：" />
 
         <EditText
-            android:id="@+id/edit_password"
+            android:id="@+id/et_password"
             android:layout_width="300dp"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:hint="密码：" />
 
             <CheckBox
-                android:id="@+id/remember_password"
+                android:id="@+id/cb_remember_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"

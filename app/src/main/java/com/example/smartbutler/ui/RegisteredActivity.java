@@ -92,7 +92,7 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
                         });
 
                         //判断简介是否为空
-                        if (!TextUtils.isEmpty(desc)) {
+                        if (TextUtils.isEmpty(desc)) {
                             desc = "这个人很懒，什么都没有留下";
                         }
 

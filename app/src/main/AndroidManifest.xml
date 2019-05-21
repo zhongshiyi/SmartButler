@@ -41,7 +41,7 @@
         <activity android:name=".ui.SettingActivity"
             android:label="@string/text_setting"/>
         <!--登陆-->
-        <activity android:name=".ui.LoginActivity"/>
+        <activity android:name=".ui.LoginActivity" />
         <!--注册-->
         <activity android:name=".ui.RegisteredActivity"
             android:label="创建账号"/>

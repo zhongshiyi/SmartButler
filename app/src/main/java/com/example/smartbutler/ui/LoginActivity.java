@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.smartbutler.R;
 
@@ -18,10 +18,9 @@ import com.example.smartbutler.R;
  * 描述：      登录
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    //登录,注册，忘记密码按钮
-    private Button btn_login;
-    private Button btn_register;
-    private Button btn_forget;
+    //注册按钮
+    private TextView tv_register;
+
 
 
     @Override
@@ -33,8 +32,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initView() {
-        btn_register = findViewById(R.id.btn_register);
-        btn_register.setOnClickListener(this);
+        tv_register = findViewById(R.id.btn_register);
+        tv_register.setOnClickListener(this);
     }
 
     @Override

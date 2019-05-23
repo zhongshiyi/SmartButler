@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText et_name;
     private EditText et_password;
     private CheckBox cb_remember_pass;
+    private TextView tv_forget;
 
 
 
@@ -59,6 +60,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_password = findViewById(R.id.et_password);
 
         cb_remember_pass = findViewById(R.id.cb_remember_password);
+
+        tv_forget = findViewById(R.id.tv_forget);
+        tv_forget.setOnClickListener(this);
+
         //设置选中的状态
         boolean isCheck = ShareUtils.getBoolean(this,"remember password",true);
         cb_remember_pass.setChecked(isCheck);
@@ -108,6 +113,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }else{
                     Toast.makeText(this,"输入框不能为空",Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.tv_forget:
+                startActivity(new Intent(LoginActivity.this,ForgetPasswordActivity.class));
                 break;
         }
     }

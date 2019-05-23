@@ -50,6 +50,8 @@
         <!--引导页-->
         <activity android:name=".ui.GuideActivity"
             android:theme="@style/NoActivityFullscreen"/>
+        <!--忘记/重置密码-->
+        <activity android:name=".ui.ForgetPasswordActivity"/>
     </application>
 
 </manifest>

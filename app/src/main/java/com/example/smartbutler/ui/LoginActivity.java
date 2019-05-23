@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,6 +18,7 @@ import com.example.smartbutler.MainActivity;
 import com.example.smartbutler.R;
 import com.example.smartbutler.entity.MyUser;
 import com.example.smartbutler.utils.ShareUtils;
+import com.example.smartbutler.view.CustomDialog;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -38,6 +40,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText et_password;
     private CheckBox cb_remember_pass;
     private TextView tv_forget;
+
+    private CustomDialog dialog;
 
 
 
@@ -64,6 +68,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tv_forget = findViewById(R.id.tv_forget);
         tv_forget.setOnClickListener(this);
 
+        //new dialog
+        dialog = new CustomDialog(this,R.layout.dialog_loding,Gravity.CENTER);
+        //屏幕外点击无效
+        dialog.setCancelable(false);
+
         //设置选中的状态
         boolean isCheck = ShareUtils.getBoolean(this,"remember password",true);
         cb_remember_pass.setChecked(isCheck);
@@ -88,6 +97,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String password = et_password.getText().toString().trim();//trim()去空格
                 //2、判断是否为空
                 if(!TextUtils.isEmpty(name) &  !TextUtils.isEmpty(password)){
+                    //dialog
+                    dialog.show();
                     //登录
                     final MyUser user = new MyUser();
                     user.setUsername(name);
@@ -97,6 +108,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         public void done(MyUser myUser, BmobException e) {
                             //判断结果
                             if(e == null){
+                                //dialog
+                                dialog.dismiss();
                                 //判断邮箱是否验证
                                 if(user.getEmailVerified()){
                                     //跳转
@@ -106,6 +119,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Toast.makeText(LoginActivity.this,"请前往邮箱验证",Toast.LENGTH_SHORT).show();
                                 }
                             }else{
+                                //dialog
+                                dialog.dismiss();
                                 Toast.makeText(LoginActivity.this,"登录失败:" + e.toString(),Toast.LENGTH_SHORT).show();
                             }
                         }

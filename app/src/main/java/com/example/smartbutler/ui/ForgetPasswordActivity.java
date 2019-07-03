@@ -16,6 +16,8 @@ import com.example.smartbutler.entity.MyUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 
+import static com.example.smartbutler.utils.StaticClass.EDIT_CANNOT_EMPTY;
+
 /**
  * 项目名：    SmartButler
  * 包名：      com.example.smartbutler.ui
@@ -83,7 +85,7 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
                         Toast.makeText(ForgetPasswordActivity.this,"两次密码不同！",Toast.LENGTH_SHORT).show();
                     }
                 }else{
-                    Toast.makeText(ForgetPasswordActivity.this,"输入狂不能为空！",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this,EDIT_CANNOT_EMPTY,Toast.LENGTH_SHORT).show();
                 }
                     break;
             case R.id.btn_forget_password:

@@ -17,4 +17,6 @@ public class StaticClass {
     public static final String BUGLY_APP_ID = "4cf6b7040e";
     //Bmob AppId
     public static final String BMOB_APP_ID = "07698e59927e9f675ca2fbd433b43547";
+    //输入框不能为空
+    public static final String EDIT_CANNOT_EMPTY = "输入框不能为空！";
 }

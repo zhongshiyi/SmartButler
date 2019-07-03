@@ -18,6 +18,8 @@ import com.example.smartbutler.entity.MyUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
+import static com.example.smartbutler.utils.StaticClass.EDIT_CANNOT_EMPTY;
+
 /**
  * 项目名：    SmartButler
  * 包名：      com.example.smartbutler.ui
@@ -123,7 +125,7 @@ public class RegisteredActivity extends BaseActivity implements View.OnClickList
 
 
                 } else {
-                    Toast.makeText(this, "输入框不能为空！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, EDIT_CANNOT_EMPTY, Toast.LENGTH_SHORT).show();
                 }
 
                 break;

@@ -3,6 +3,9 @@ package com.example.smartbutler.fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -11,6 +14,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +27,12 @@ import com.example.smartbutler.R;
 import com.example.smartbutler.entity.MyUser;
 import com.example.smartbutler.ui.LoginActivity;
 import com.example.smartbutler.utils.L;
+import com.example.smartbutler.utils.ShareUtils;
+import com.example.smartbutler.utils.UtilTools;
 import com.example.smartbutler.view.CustomDialog;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import cn.bmob.v3.BmobUser;
@@ -87,6 +95,9 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
         profile_image = view.findViewById(R.id.profile_image);
         profile_image.setOnClickListener(this);
+
+        //读取图片
+        UtilTools.getImageView(getActivity(),profile_image);
 
         //初始化dialog
         dialog = new CustomDialog(getActivity(),
@@ -247,7 +258,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
             switch(requestCode){
                 //相册数据
                 case IMAGE_REQUEST_CODE:
-                    data.getData();
+                    startPhotoZoom(data.getData());
                     break;
                     //相机数据
                 case CAMERA_REQUEST_CODE:
@@ -255,7 +266,15 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                     startPhotoZoom(Uri.fromFile(tempFile));
                     break;
                 case RESULT_REQUEST_CODE:
-
+                    //有可能点击舍去，得判断
+                    if(data != null){
+                        //拿到图片设置
+                        setImageToView(data);
+                        //既然已经设置了图片，我们原先的就应该删除
+                        if(tempFile != null){
+                            tempFile.delete();
+                        }
+                    }
                     break;
             }
         }
@@ -267,7 +286,8 @@ public class UserFragment extends Fragment implements View.OnClickListener {
             L.e("uri == null");
             return;
         }
-        Intent intent = new Intent("com.android..camera.action.CROP");
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        //intent.setAction(Intent.ACTION_PICK);
         intent.setDataAndType(uri,"image/*");
         //设置裁剪
         intent.putExtra("crop","true");
@@ -275,8 +295,29 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         intent.putExtra("aspectX",1);
         intent.putExtra("aspectY",1);
         //裁剪图片的质量
-        intent.putExtra("outputX",320);
-        intent.putExtra("outputY",320);
+        intent.putExtra("outputX",600);
+        intent.putExtra("outputY",600);
+        //发送数据
+        intent.putExtra("return-data",true);
+
+        intent.putExtra("scale",true);//支持缩放
         startActivityForResult(intent,RESULT_REQUEST_CODE);
+    }
+
+    //设置图片
+    private void setImageToView(Intent data){
+        Bundle bundle = data.getExtras();
+        if(bundle != null){
+            Bitmap bitmap = bundle.getParcelable("data");
+            profile_image.setImageBitmap(bitmap);
+        }
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //保存
+        UtilTools.putImageToShare(getActivity(),profile_image);
     }
 }

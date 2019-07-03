@@ -15,29 +15,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17fb15b7-0cff-4421-b35d-b26b824817c5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_hdodenhof_circleimageview_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_bg_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/head_portrait.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_photo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/fragment/UserFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/fragment/UserFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/ui/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/ui/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/utils/UtilTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/utils/UtilTools.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,38 +58,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/fragment/UserFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1820">
-              <caret line="264" selection-start-line="264" selection-end-line="264" />
+            <state relative-caret-position="86">
+              <caret line="99" column="58" selection-start-line="99" selection-start-column="58" selection-end-line="99" selection-end-column="58" />
               <folding>
                 <element signature="method#onCreateView#0;class#UserFragment#0" />
-                <element signature="method#findView#0;class#UserFragment#0" />
-                <element signature="method#setEnabled#0;class#UserFragment#0" />
-                <element signature="method#showExitDialog#0;class#UserFragment#0" />
-                <element signature="method#onClick#0;class#UserFragment#0" />
                 <element signature="e#6057#6613#0" expanded="true" />
                 <element signature="e#6612#6613#0" expanded="true" />
-                <element signature="method#toCamera#0;class#UserFragment#0" />
-                <element signature="method#toPicture#0;class#UserFragment#0" />
-                <element signature="method#onActivityResult#0;class#UserFragment#0" />
-                <element signature="method#startPhotoZoom#0;class#UserFragment#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/MainActivity.java">
+      <file leaf-file-name="UtilTools.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/utils/UtilTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="135" column="58" lean-forward="true" selection-start-line="135" selection-start-column="58" selection-end-line="135" selection-end-column="58" />
+            <state relative-caret-position="801">
+              <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
               <folding>
-                <element signature="e#3808#3809#0" expanded="true" />
-                <element signature="e#3863#3864#0" expanded="true" />
-                <element signature="e#3988#3989#0" expanded="true" />
-                <element signature="e#4047#4048#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2424,9 +2401,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/button_bg_3.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/ui/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_photo.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/fragment/UserFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/utils/UtilTools.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/fragment/UserFragment.java" />
       </list>
     </option>
   </component>
@@ -2509,6 +2487,16 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smartbutler" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartButler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartButler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2549,7 +2537,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="Pixel_2_XL_API_26" />
+    <property name="device.picker.selection" value="4660ea3b" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -2698,7 +2686,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32919955" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32919955" />
-      <window_info anchor="bottom" id="Logcat" order="7" visible="true" weight="0.3348365" />
+      <window_info anchor="bottom" id="Logcat" order="7" visible="true" weight="0.25366405" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -2729,16 +2717,8 @@
           <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
           <folding>
             <element signature="method#onCreateView#0;class#UserFragment#0" />
-            <element signature="method#findView#0;class#UserFragment#0" />
-            <element signature="method#setEnabled#0;class#UserFragment#0" />
-            <element signature="method#showExitDialog#0;class#UserFragment#0" />
-            <element signature="method#onClick#0;class#UserFragment#0" />
             <element signature="e#6057#6613#0" expanded="true" />
             <element signature="e#6612#6613#0" expanded="true" />
-            <element signature="method#toCamera#0;class#UserFragment#0" />
-            <element signature="method#toPicture#0;class#UserFragment#0" />
-            <element signature="method#onActivityResult#0;class#UserFragment#0" />
-            <element signature="method#startPhotoZoom#0;class#UserFragment#0" />
           </folding>
         </state>
       </provider>
@@ -2895,26 +2875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/fragment/UserFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1820">
-          <caret line="264" selection-start-line="264" selection-end-line="264" />
-          <folding>
-            <element signature="method#onCreateView#0;class#UserFragment#0" />
-            <element signature="method#findView#0;class#UserFragment#0" />
-            <element signature="method#setEnabled#0;class#UserFragment#0" />
-            <element signature="method#showExitDialog#0;class#UserFragment#0" />
-            <element signature="method#onClick#0;class#UserFragment#0" />
-            <element signature="e#6057#6613#0" expanded="true" />
-            <element signature="e#6612#6613#0" expanded="true" />
-            <element signature="method#toCamera#0;class#UserFragment#0" />
-            <element signature="method#toPicture#0;class#UserFragment#0" />
-            <element signature="method#onActivityResult#0;class#UserFragment#0" />
-            <element signature="method#startPhotoZoom#0;class#UserFragment#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/ui/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -2954,13 +2914,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="135" column="58" lean-forward="true" selection-start-line="135" selection-start-column="58" selection-end-line="135" selection-end-column="58" />
+        <state relative-caret-position="-2970">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#3808#3809#0" expanded="true" />
             <element signature="e#3863#3864#0" expanded="true" />
             <element signature="e#3988#3989#0" expanded="true" />
             <element signature="e#4047#4048#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/content/Intent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="7769" column="28" selection-start-line="7769" selection-start-column="28" selection-end-line="7769" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/utils/UtilTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="801">
+          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/smartbutler/fragment/UserFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="99" column="58" selection-start-line="99" selection-start-column="58" selection-end-line="99" selection-end-column="58" />
+          <folding>
+            <element signature="method#onCreateView#0;class#UserFragment#0" />
+            <element signature="e#6057#6613#0" expanded="true" />
+            <element signature="e#6612#6613#0" expanded="true" />
           </folding>
         </state>
       </provider>

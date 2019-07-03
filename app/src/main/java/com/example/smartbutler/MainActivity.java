@@ -14,14 +14,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+
 import com.example.smartbutler.fragment.ButlerFragment;
 import com.example.smartbutler.fragment.GirlFragment;
 import com.example.smartbutler.fragment.UserFragment;
 import com.example.smartbutler.fragment.WeChatFragment;
 import com.example.smartbutler.ui.SettingActivity;
-import com.example.smartbutler.utils.L;
-import com.example.smartbutler.utils.ShareUtils;
-import com.tencent.bugly.crashreport.CrashReport;
+
 
 
 import java.util.ArrayList;
@@ -54,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         
     }
 
+
+
+
     //初始化数据
     private void initData() {
         mTitle = new ArrayList<>();
@@ -83,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //预加载(提前进行加载)
         mViewPager.setOffscreenPageLimit(mFragment.size());
+
+
 
         //设置mViewPager滑动监听
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -114,6 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public Fragment getItem(int position) {
                 return mFragment.get(position);
+
             }
 
             //返回item的个数
@@ -143,4 +148,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        if (mViewPager != null) {
+//            ((ViewGroup) mViewPager.getParent()).removeView(mViewPager);
+//        }
+//    }
 }

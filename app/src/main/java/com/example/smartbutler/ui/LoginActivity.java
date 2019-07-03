@@ -70,8 +70,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tv_forget = findViewById(R.id.tv_forget);
         tv_forget.setOnClickListener(this);
 
-        //new dialog
-        dialog = new CustomDialog(this,R.layout.dialog_loding,Gravity.CENTER);
+        //初始化dialog
+        dialog = new CustomDialog(this,
+                R.layout.dialog_loding,Gravity.CENTER);
         //屏幕外点击无效
         dialog.setCancelable(false);
 

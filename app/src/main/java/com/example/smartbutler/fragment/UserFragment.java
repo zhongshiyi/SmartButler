@@ -3,11 +3,15 @@ package com.example.smartbutler.fragment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +22,15 @@ import android.widget.Toast;
 import com.example.smartbutler.R;
 import com.example.smartbutler.entity.MyUser;
 import com.example.smartbutler.ui.LoginActivity;
+import com.example.smartbutler.utils.L;
+import com.example.smartbutler.view.CustomDialog;
+
+import java.io.File;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.example.smartbutler.utils.StaticClass.EDIT_CANNOT_EMPTY;
 
@@ -35,13 +44,24 @@ import static com.example.smartbutler.utils.StaticClass.EDIT_CANNOT_EMPTY;
  */
 public class UserFragment extends Fragment implements View.OnClickListener {
 
+    //退出按钮
     private Button btn_exit_user;
+    //编辑按钮
     private Button btn_edit_user;
     private EditText et_username;
     private EditText et_sex;
     private EditText et_age;
     private EditText et_intro;
-    private Button btn_comfirm_info;
+    //确认更新
+    private Button btn_confirm_info;
+    //圆形头像
+    private CircleImageView profile_image;
+    //提示框
+    private CustomDialog dialog;
+
+    private Button btn_camera;
+    private Button btn_picture;
+    private Button btn_cancel;
 
     @Nullable
     @Override
@@ -57,13 +77,31 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         btn_exit_user.setOnClickListener(this);
         btn_edit_user = view.findViewById(R.id.edit_user);
         btn_edit_user.setOnClickListener(this);
-        btn_comfirm_info = view.findViewById(R.id.confirm_user_information);
-        btn_comfirm_info.setOnClickListener(this);
+        btn_confirm_info = view.findViewById(R.id.confirm_user_information);
+        btn_confirm_info.setOnClickListener(this);
 
         et_username = view.findViewById(R.id.et_username);
         et_sex = view.findViewById(R.id.et_sex);
         et_age = view.findViewById(R.id.et_age);
         et_intro = view.findViewById(R.id.et_intro);
+
+        profile_image = view.findViewById(R.id.profile_image);
+        profile_image.setOnClickListener(this);
+
+        //初始化dialog
+        dialog = new CustomDialog(getActivity(),
+                R.layout.dialog_photo,Gravity.BOTTOM);
+
+        //屏幕外点击无效
+        dialog.setCancelable(false);
+
+        //初始化dialog中的按钮
+        btn_camera = dialog.findViewById(R.id.btn_camera);
+        btn_camera.setOnClickListener(this);
+        btn_picture = dialog.findViewById(R.id.btn_picture);
+        btn_picture.setOnClickListener(this);
+        btn_cancel = dialog.findViewById(R.id.btn_cancel);
+        btn_cancel.setOnClickListener(this);
 
         //默认是不可点击的/不可输入的
         setEnabled(false);
@@ -87,7 +125,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     //带"是"和"否"的消息提示框
     private void showExitDialog(){
          new AlertDialog.Builder(getContext())
-                 .setTitle("带确定的提示框").setMessage("确定推出登录吗？")
+                 .setTitle(" ").setMessage("确定推出登录吗？")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -159,6 +197,86 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                     Toast.makeText(getActivity(),EDIT_CANNOT_EMPTY,Toast.LENGTH_SHORT).show();//输入框不能为空！
                 }
                 break;
+                //选择头像
+            case R.id.profile_image:
+                dialog.show();
+                break;
+                //拍照
+            case R.id.btn_camera:
+                dialog.dismiss();
+                toCamera();
+                break;
+                //相册
+            case R.id.btn_picture:
+                toPicture();
+                break;
+                //取消
+            case R.id.btn_cancel:
+                dialog.dismiss();
+                break;
+
         }
+    }
+
+    public static final String PHOTO_IMAGE_FILE_NAME = "fileIma.jpg";
+    public static final int CAMERA_REQUEST_CODE = 100;
+    public static final int IMAGE_REQUEST_CODE = 101;
+    public static final int RESULT_REQUEST_CODE = 102;
+    private File tempFile = null;
+
+    //跳转相机
+    private void toCamera() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //判断内存卡是否可用，可用的话就进行储存
+        intent.putExtra(MediaStore.EXTRA_OUTPUT,
+                Uri.fromFile(new File(Environment.getExternalStorageDirectory(), PHOTO_IMAGE_FILE_NAME)));
+        startActivityForResult(intent,CAMERA_REQUEST_CODE);//跳转至相机界面
+        dialog.dismiss();
+    }
+    //跳转相册
+    private void toPicture() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent,IMAGE_REQUEST_CODE);//跳转至相册界面
+        dialog.dismiss();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode != getActivity().RESULT_CANCELED){//"0"
+            switch(requestCode){
+                //相册数据
+                case IMAGE_REQUEST_CODE:
+                    data.getData();
+                    break;
+                    //相机数据
+                case CAMERA_REQUEST_CODE:
+                    tempFile = new File(Environment.getExternalStorageDirectory(),PHOTO_IMAGE_FILE_NAME);
+                    startPhotoZoom(Uri.fromFile(tempFile));
+                    break;
+                case RESULT_REQUEST_CODE:
+
+                    break;
+            }
+        }
+    }
+
+    //相片裁剪
+    private void startPhotoZoom(Uri uri){
+        if(uri == null){
+            L.e("uri == null");
+            return;
+        }
+        Intent intent = new Intent("com.android..camera.action.CROP");
+        intent.setDataAndType(uri,"image/*");
+        //设置裁剪
+        intent.putExtra("crop","true");
+        //裁剪狂傲比例
+        intent.putExtra("aspectX",1);
+        intent.putExtra("aspectY",1);
+        //裁剪图片的质量
+        intent.putExtra("outputX",320);
+        intent.putExtra("outputY",320);
+        startActivityForResult(intent,RESULT_REQUEST_CODE);
     }
 }

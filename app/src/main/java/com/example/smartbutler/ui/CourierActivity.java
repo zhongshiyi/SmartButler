@@ -10,12 +10,23 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.smartbutler.R;
-import com.example.smartbutler.application.BaseApplication;
+import com.example.smartbutler.adapter.CourierAdapter;
+
+import com.example.smartbutler.entity.CourierData;
 import com.example.smartbutler.utils.L;
+import com.example.smartbutler.utils.StaticClass;
 import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpCallback;
 
-import static com.example.smartbutler.utils.StaticClass.COURIER_KEY;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+
 import static com.example.smartbutler.utils.StaticClass.EDIT_CANNOT_EMPTY;
 
 /**
@@ -31,7 +42,9 @@ public class CourierActivity extends BaseActivity implements View.OnClickListene
     private EditText et_name;
     private EditText et_number;
     private Button btn_refer;
-    private ListView lv_listView;
+    private ListView mListView;
+
+    private List<CourierData>mList = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +59,7 @@ public class CourierActivity extends BaseActivity implements View.OnClickListene
         et_number = findViewById(R.id.et_number);
         btn_refer = findViewById(R.id.btn_refer);
         btn_refer.setOnClickListener(this);
-        lv_listView = findViewById(R.id.lv_listView);
+        mListView = findViewById(R.id.lv_listView);
     }
 
     @Override
@@ -67,21 +80,45 @@ public class CourierActivity extends BaseActivity implements View.OnClickListene
                 String number = et_number.getText().toString().trim();
 
                 //拼接我们的url
-                String url = "http://v.juhe.cn/exp/index?key="+ COURIER_KEY +"&com="+ name +"&no=" + number;
+                String url = "http://v.juhe.cn/exp/index?key="+ StaticClass.COURIER_KEY +"&com="+ name +"&no=" + number;
                 //2.判断输入框是否为空
                 if(!TextUtils.isEmpty(name) & !TextUtils.isEmpty(number)){
                     //3.拿到数据去请求数据（Json）
                     RxVolley.get(url, new HttpCallback() {
                         @Override
                         public void onSuccess(String t) {
-                            Toast.makeText(CourierActivity.this,t,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(CourierActivity.this,t,Toast.LENGTH_SHORT).show();
                             L.i("Json:" + t);
+                            ParsingJson(t);
                         }
                     });
                 }else{
                     Toast.makeText(this,EDIT_CANNOT_EMPTY,Toast.LENGTH_SHORT).show();
                 }
                 break;
+        }
+    }
+
+    //解析数据
+    private void ParsingJson(String t){
+        try {
+            JSONObject jsonObject = new JSONObject(t);
+            JSONObject jsonResult = jsonObject.getJSONObject("result");
+            JSONArray jsonArray = jsonResult.getJSONArray("list");
+            for(int i = 0;i <jsonArray.length();i++){
+                JSONObject json = (JSONObject) jsonArray.get(i);
+
+                CourierData data = new CourierData();
+                data.setRemark(json.getString("remark"));
+                data.setZone(json.getString("zone"));
+                data.setDatetime(json.getString("datetime"));
+                mList.add(data);
+            }
+            Collections.reverse(mList);//倒序处理
+            CourierAdapter adapter = new CourierAdapter(this,mList);
+            mListView.setAdapter(adapter);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

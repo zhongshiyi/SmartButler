@@ -39,7 +39,9 @@ dependencies {
     //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
     //Bmob
-    implementation 'cn.bmob.android:bmob-sdk:3.5.0'
+    implementation ('cn.bmob.android:bmob-sdk:3.5.0'){
+        exclude group: "io.reactivex"
+    }//过滤掉io.reavtivex
     //圆形头像图库CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     //RxVolley

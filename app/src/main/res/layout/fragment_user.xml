@@ -15,12 +15,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/siber"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/siber"
+                    android:scaleType="centerCrop"
+                    android:layout_centerInParent="true"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
@@ -28,9 +32,10 @@
                     android:layout_height="96dp"
                     android:src="@drawable/head_portrait"
                     app:civ_border_width="2dp"
-                    app:civ_border_color="@android:color/white"/>
+                    app:civ_border_color="@android:color/white"
+                    android:layout_centerInParent="true"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
             <!--用户名-->
             <LinearLayout
@@ -111,6 +116,7 @@
 
 
             <TextView
+                android:id="@+id/tb_courier"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"

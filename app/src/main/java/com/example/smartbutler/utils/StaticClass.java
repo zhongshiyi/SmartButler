@@ -19,4 +19,7 @@ public class StaticClass {
     public static final String BMOB_APP_ID = "07698e59927e9f675ca2fbd433b43547";
     //输入框不能为空
     public static final String EDIT_CANNOT_EMPTY = "输入框不能为空！";
+    //快递key
+    public static final String COURIER_KEY = "56449691126d4c6bcf343a1509130cc7";
+
 }

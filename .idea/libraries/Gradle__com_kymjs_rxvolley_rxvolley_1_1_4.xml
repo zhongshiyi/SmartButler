@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.kymjs.rxvolley:rxvolley-1.1.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/caches/transforms-1/files-1.1/rxvolley-1.1.4.aar/54879595c6f75e0de6a375f063781772/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/caches/transforms-1/files-1.1/rxvolley-1.1.4.aar/54879595c6f75e0de6a375f063781772/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/caches/modules-2/files-2.1/com.kymjs.rxvolley/rxvolley/1.1.4/a0f9045a2a39ba375b628c7f3eb8e02331a3751a/rxvolley-1.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

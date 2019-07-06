@@ -23,7 +23,7 @@ public class WeChatFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wechat,null);
+        View view = inflater.inflate(R.layout.fragment_wechat,container,false);
         return view;
     }
 }

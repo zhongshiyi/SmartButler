@@ -42,4 +42,8 @@ dependencies {
     implementation 'cn.bmob.android:bmob-sdk:3.5.0'
     //圆形头像图库CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //RxVolley
+    implementation ('com.kymjs.rxvolley:rxvolley:1.1.4'){
+        exclude group: "io.reactivex"
+    }//过滤掉io.reavtivex
 }

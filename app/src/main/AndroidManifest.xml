@@ -46,12 +46,16 @@
         <activity android:name=".ui.RegisteredActivity"
             android:label="创建账号"/>
         <!--主页-->
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity"
+            android:hardwareAccelerated="true"/>
         <!--引导页-->
         <activity android:name=".ui.GuideActivity"
             android:theme="@style/NoActivityFullscreen"/>
         <!--忘记/重置密码-->
         <activity android:name=".ui.ForgetPasswordActivity"/>
+        <!--快递查询-->
+        <activity android:name=".ui.CourierActivity"
+            android:label="快递查询" />
     </application>
 
 </manifest>

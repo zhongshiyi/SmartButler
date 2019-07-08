@@ -21,5 +21,6 @@ public class StaticClass {
     public static final String EDIT_CANNOT_EMPTY = "输入框不能为空！";
     //快递key
     public static final String COURIER_KEY = "56449691126d4c6bcf343a1509130cc7";
-
+    //归属地查询key
+    public static final String PHONE_KEY = "c3ba3629718f1a68e5d8a6d0baa96fe3";
 }

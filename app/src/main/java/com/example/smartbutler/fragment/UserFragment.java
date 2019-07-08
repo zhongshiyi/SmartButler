@@ -28,6 +28,7 @@ import com.example.smartbutler.R;
 import com.example.smartbutler.entity.MyUser;
 import com.example.smartbutler.ui.CourierActivity;
 import com.example.smartbutler.ui.LoginActivity;
+import com.example.smartbutler.ui.PhoneActivity;
 import com.example.smartbutler.utils.L;
 import com.example.smartbutler.utils.ShareUtils;
 import com.example.smartbutler.utils.UtilTools;
@@ -75,6 +76,8 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
     private TextView tb_courier;
 
+    private TextView tv_phone;
+
 
 
     @Nullable
@@ -101,10 +104,12 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
         profile_image = view.findViewById(R.id.profile_image);
         profile_image.setOnClickListener(this);
-
+        //物流
         tb_courier = view.findViewById(R.id.tb_courier);
         tb_courier.setOnClickListener(this);
-
+        //号码归属地
+        tv_phone = view.findViewById(R.id.tv_phone);
+        tv_phone.setOnClickListener(this);
         //读取图片
         UtilTools.getImageView(getActivity(),profile_image);
 
@@ -237,6 +242,10 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 //快递查询
             case R.id.tb_courier:
                 startActivity(new Intent(getActivity(),CourierActivity.class));
+                break;
+                //归属地查询
+            case R.id.tv_phone:
+                startActivity(new Intent(getActivity(),PhoneActivity.class));
                 break;
         }
     }

@@ -6,10 +6,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/weChat_selection"
-        android:textSize="30dp"/>
+    <ListView
+        android:id="@+id/weChat_mListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
 
 </LinearLayout>

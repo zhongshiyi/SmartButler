@@ -25,4 +25,6 @@ public class StaticClass {
     public static final String PHONE_KEY = "c3ba3629718f1a68e5d8a6d0baa96fe3";
     //微信精选key
     public static final String WECHAT_KEY = "320d7c8c201a1b4c6080e3a03da7c13b";
+    //天行数据--美女接口
+    public static final String GIRL_KEY = "defaa1c52d073d96a0d7ca38e0ae968f";
 }

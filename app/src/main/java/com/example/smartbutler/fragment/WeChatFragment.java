@@ -1,5 +1,6 @@
 package com.example.smartbutler.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,12 +8,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.smartbutler.R;
 import com.example.smartbutler.adapter.WeChatAdapter;
 import com.example.smartbutler.entity.WeChatData;
+import com.example.smartbutler.ui.WebViewActivity;
+import com.example.smartbutler.utils.L;
 import com.example.smartbutler.utils.StaticClass;
 import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpCallback;
@@ -35,8 +39,11 @@ import java.util.List;
 public class WeChatFragment extends Fragment {
 
     private ListView weChat_mListView;
-
     private List<WeChatData>mList = new ArrayList<>();
+    //新闻标题
+    private List<String>mListTitle = new ArrayList<>();
+    //新闻地址
+    private List<String>mListUrl = new ArrayList<>();
 
     @Nullable
     @Override
@@ -56,8 +63,27 @@ public class WeChatFragment extends Fragment {
         RxVolley.get(url, new HttpCallback() {
             @Override
             public void onSuccess(String t) {
-                Toast.makeText(getActivity(), t, Toast.LENGTH_SHORT);
+                //Toast.makeText(getActivity(), t, Toast.LENGTH_SHORT);
+                L.i("json：" + t);
                 pasingJson(t);
+            }
+        });
+
+        //点击事件
+        weChat_mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                L.i("position:" + position);
+                Intent intent = new Intent(getActivity(),WebViewActivity.class);
+                //Intent的两种方法传值
+//                1.第一种
+//                Bundle bundle = new Bundle();
+//                bundle.putString("key","values");
+//                intent.putExtras(bundle);
+//                2.第二种
+                intent.putExtra("title",mListTitle.get(position));
+                intent.putExtra("url",mListUrl.get(position));
+                startActivity(intent);
             }
         });
     }
@@ -70,16 +96,23 @@ public class WeChatFragment extends Fragment {
             for(int i = 0;i < jsonList.length();i++){
                 JSONObject json = (JSONObject) jsonList.get(i);
                 WeChatData data = new WeChatData();
-                data.setTitle(json.getString("title"));
+
+                String title = json.getString("title");
+                String url = json.getString("url");
+                data.setTitle(title);//"title"
                 data.setSource(json.getString("source"));
                 //暂不支持封面图片
                 //data.setImgurl(json.getString("firstImg"));
                 mList.add(data);
+
+                mListTitle.add(title);
+                mListUrl.add(url);
             }
             WeChatAdapter adapter = new WeChatAdapter(getActivity(),  mList);
             weChat_mListView.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();
+
         }
     }
 

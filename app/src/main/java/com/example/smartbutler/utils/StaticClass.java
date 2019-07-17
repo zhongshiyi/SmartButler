@@ -27,4 +27,6 @@ public class StaticClass {
     public static final String WECHAT_KEY = "320d7c8c201a1b4c6080e3a03da7c13b";
     //天行数据--美女接口
     public static final String GIRL_KEY = "defaa1c52d073d96a0d7ca38e0ae968f";
+    //图灵机器人APIkey
+    public static final String CHAT_LIST_KEY = "a194eab348fd4cae9a227e0ac7a4d3d4";
 }

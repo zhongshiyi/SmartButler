@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.smartbutler.R;
 import com.example.smartbutler.entity.GirlData;
+import com.example.smartbutler.utils.PicassoUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -33,8 +34,8 @@ public class GridAdapter extends BaseAdapter {
     private GirlData data;
 
     private WindowManager windowManager;
-    //屏幕宽
-    private int width;
+    //屏幕宽、高
+    private int width,height;
 
     @SuppressLint("ServiceCast")
     public GridAdapter(Context context, List<GirlData> mList){
@@ -44,6 +45,7 @@ public class GridAdapter extends BaseAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         width = windowManager.getDefaultDisplay().getWidth();
+        height = windowManager.getDefaultDisplay().getHeight();
     }
 
     @Override
@@ -77,8 +79,8 @@ public class GridAdapter extends BaseAdapter {
         //解析图片
         String url = data.getImgUrl();
         //加载图片
-        //PicassoUtils.loadImageViewSize(context,url,width/2,250,viewHolder.imageView);
-        Picasso.with(context).load(url).into(viewHolder.imageView);
+        PicassoUtils.loadImageViewSize(context,url,width/2,height/2,viewHolder.imageView);
+        //Picasso.with(context).load(url).into(viewHolder.imageView);
         return convertView;
     }
 

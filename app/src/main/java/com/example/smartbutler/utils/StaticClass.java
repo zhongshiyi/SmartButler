@@ -29,4 +29,6 @@ public class StaticClass {
     public static final String GIRL_KEY = "defaa1c52d073d96a0d7ca38e0ae968f";
     //图灵机器人APIkey
     public static final String CHAT_LIST_KEY = "a194eab348fd4cae9a227e0ac7a4d3d4";
+    //语音APPID
+    public static final String VOICE_KEY = "5d2eded8";
 }

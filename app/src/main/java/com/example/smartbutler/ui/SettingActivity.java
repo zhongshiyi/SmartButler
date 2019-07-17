@@ -16,7 +16,7 @@ import com.example.smartbutler.utils.ShareUtils;
  * 创建时间    2019/5/18 16:26
  * 描述：      TODO
  */
-public class SettingActivity extends BaseActivity  {
+public class SettingActivity extends BaseActivity implements View.OnClickListener {
     //语音播报
     private Switch sw_speak;
 
@@ -25,23 +25,28 @@ public class SettingActivity extends BaseActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        //initView();
+        initView();
     }
 
-//    private void initView() {
-//        sw_speak = findViewById(R.id.sw_speak);
-//        sw_speak.setOnClickListener(this);
-//    }
-//
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()){
-//            case R.id.sw_speak:
-//                //切换相反
-//                sw_speak.setSelected(!sw_speak.isSelected());
-//                //保存状态
-//                ShareUtils.putBoolean(this,"isSpeak",sw_speak.isChecked());
-//                break;
-//        }
-//    }
+    private void initView() {
+        sw_speak = findViewById(R.id.sw_speak);
+        sw_speak.setOnClickListener(this);
+
+        //默认语音播报不选中
+        boolean isSpeak = ShareUtils.getBoolean(this,"isSpeak",false);
+        sw_speak.setSelected(isSpeak);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.sw_speak:
+                //切换相反
+                sw_speak.setSelected(!sw_speak.isSelected());
+                //保存状态
+                ShareUtils.putBoolean(this,"isSpeak",sw_speak.isChecked());
+                break;
+        }
+    }
 }

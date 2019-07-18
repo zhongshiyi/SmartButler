@@ -16,18 +16,32 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher" />
 
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="300dp"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="用户名：" />
+            android:layout_marginLeft="30dp">
 
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="300dp"
-            android:inputType="textPassword"
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="用户名：" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="密码：" />
+            android:layout_marginLeft="30dp">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="密码：" />
+
+        </android.support.design.widget.TextInputLayout>
 
             <CheckBox
                 android:id="@+id/cb_remember_password"

@@ -79,11 +79,11 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
 
 
         //1.创建SpeechSynthesizer对象
-        mTts= SpeechSynthesizer.createSynthesizer(getActivity(),null);
+        //mTts= SpeechSynthesizer.createSynthesizer(getActivity(),null);
         //2.合成参数设置，详见《MSC Reference Manual》SpeechSynthesizer 类
-        mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan");//设置发音人
-        mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速
-        mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围0~100
+        //mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan");//设置发音人
+        //mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速
+        //mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围0~100
         //设置合成音频保存位置（可自定义保存位置），保存在“./tts_test.pcm”
         //如果不需要保存合成音频，注释该行代码
         //mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, "./tts_test.pcm");
@@ -126,7 +126,7 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
                             public void onSuccess(String t) {
                                 //Toast.makeText(getActivity(),"Json："+t,Toast.LENGTH_SHORT).show();
                                 L.i("Json:" + t);
-                                pasingJson(t);
+                                //pasingJson(t);
                             }
                         });
                     }

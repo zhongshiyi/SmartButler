@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 
 import com.example.smartbutler.R;
 import com.example.smartbutler.service.SmsService;
 import com.example.smartbutler.utils.ShareUtils;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 /**
  * 项目名：    SmartButler
@@ -23,6 +25,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private Switch sw_speak;
     //智能短信
     private Switch sw_sms;
+
+    //扫一扫
+    private LinearLayout ll_scan;
+    //分享二维码
+    private LinearLayout ll_share;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +52,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         boolean isSms = ShareUtils.getBoolean(this,"isSms",false);
         sw_sms.setChecked(isSms);
 
+
+        ll_scan = findViewById(R.id.ll_scan);
+        ll_scan.setOnClickListener(this);
     }
 
     @Override
@@ -66,6 +76,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 }else{
                     stopService(new Intent(this,SmsService.class));
                 }
+                break;
+            case R.id.ll_scan:
+                //打开扫描界面扫描条形码或二维码
+                Intent openCameraIntent = new Intent(this, CaptureActivity.class);
+                startActivityForResult(openCameraIntent, 0);
                 break;
         }
     }

@@ -62,4 +62,6 @@ dependencies {
     implementation files('libs/Msc.jar')
     implementation 'org.jetbrains:annotations-java5:15.0'
     implementation 'org.jetbrains:annotations-java5:15.0'
+    //二维码
+    implementation project(path: ':libzxing')
 }

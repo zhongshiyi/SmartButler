@@ -193,7 +193,6 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
         public void onEvent(int i, int i1, int i2, Bundle bundle) {
 
         }
-
         //缓冲进度回调
         //percent为缓冲进度0~100，beginPos为缓冲音频在文本中开始位置，endPos表示缓冲音频在文本中结束位置，info为附加信息。
         public void onBufferProgress(int percent, int beginPos, int endPos, String info) {}

@@ -126,7 +126,7 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
                             public void onSuccess(String t) {
                                 //Toast.makeText(getActivity(),"Json："+t,Toast.LENGTH_SHORT).show();
                                 L.i("Json:" + t);
-                                //pasingJson(t);
+                                pasingJson(t);
                             }
                         });
                     }
@@ -142,7 +142,7 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
             JSONObject jsonObject = new JSONObject(t);
             String text = jsonObject.getString("text");
             //7.拿到机器人的返回值后添加到left item
-            addRightItem(text);
+            addLeftItem(text);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -185,6 +185,7 @@ public class ButlerFragment extends Fragment implements View.OnClickListener {
 
     //合成监听器
     private SynthesizerListener mSynListener = new SynthesizerListener(){
+
         //会话结束回调接口，没有错误时，error为null
         public void onCompleted(SpeechError error) {}
 

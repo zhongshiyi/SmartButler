@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.example.smartbutler.R;
 import com.example.smartbutler.service.SmsService;
@@ -28,6 +29,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     //扫一扫
     private LinearLayout ll_scan;
+    //扫描的结果
+    private TextView tv_scan_result;
     //分享二维码
     private LinearLayout ll_share;
 
@@ -52,9 +55,15 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         boolean isSms = ShareUtils.getBoolean(this,"isSms",false);
         sw_sms.setChecked(isSms);
 
-
+        //扫描二维码或者条形码
         ll_scan = findViewById(R.id.ll_scan);
         ll_scan.setOnClickListener(this);
+
+        tv_scan_result = findViewById(R.id.tv_scan_result);
+
+        //生成二维码
+        ll_share = findViewById(R.id.ll_share);
+        ll_share.setOnClickListener(this);
     }
 
     @Override
@@ -77,11 +86,26 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                     stopService(new Intent(this,SmsService.class));
                 }
                 break;
+                //扫描二维码
             case R.id.ll_scan:
                 //打开扫描界面扫描条形码或二维码
                 Intent openCameraIntent = new Intent(this, CaptureActivity.class);
                 startActivityForResult(openCameraIntent, 0);
                 break;
+                //生成二维码
+            case R.id.ll_share:
+                startActivity(new Intent(this,QrCodeActivity.class));
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            String scanResult = bundle.getString("result");
+            tv_scan_result.setText(scanResult);
         }
     }
 }

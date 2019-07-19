@@ -34,4 +34,9 @@ public class StaticClass {
 
     //短信Action
     public static final String SMS_ACTION = "android.provider.Telephony.SMS_RECEIVED";
+
+    /**
+     * ZXingLib微信扫一扫，和生成二维码
+     */
+    public static final String ZXingLib = "https://github.com/xuyisheng/ZXingLib";
 }

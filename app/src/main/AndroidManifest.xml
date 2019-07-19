@@ -88,7 +88,9 @@
         <activity android:name=".ui.WebViewActivity"/>
         <!--智能短信提醒-->
         <service android:name=".service.SmsService"/>
-
+        <!--生成二维码-->
+        <activity android:name=".ui.QrCodeActivity"
+            android:label="我的二维码"/>
     </application>
 
 </manifest>

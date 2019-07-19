@@ -33,6 +33,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private TextView tv_scan_result;
     //分享二维码
     private LinearLayout ll_share;
+    //我的位置
+    private LinearLayout ll_my_location;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +66,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         //生成二维码
         ll_share = findViewById(R.id.ll_share);
         ll_share.setOnClickListener(this);
+
+        ll_my_location = findViewById(R.id.ll_my_location);
+        ll_my_location.setOnClickListener(this);
     }
 
     @Override
@@ -95,6 +100,10 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 //生成二维码
             case R.id.ll_share:
                 startActivity(new Intent(this,QrCodeActivity.class));
+                break;
+                //定位
+            case R.id.ll_my_location:
+                startActivity(new Intent(this,LocationActivity.class));
                 break;
         }
     }

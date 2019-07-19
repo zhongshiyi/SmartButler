@@ -33,15 +33,25 @@
     <!--配置权限，用来记录应用配置信息 -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-    <!--手机定位信息，用来为语义等功能提供定位，提供更精准的服务-->
-    <!--定位信息是敏感信息，可通过Setting.setLocationEnable(false)关闭定位请求 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <!--如需使用人脸识别，还要添加：摄相头权限，拍照需要用到 -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <!--短信权限-->
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!-- SD卡读取权限，用户写入离线定位数据-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+
+
+    <!--读取系统信息，包含系统版本等信息，用作统计-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
 
     <application
         android:name=".application.BaseApplication"
@@ -53,6 +63,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         >
+
         <!--闪屏页-->
         <activity android:name=".ui.SplashActivity"
             android:theme="@style/NoActivityFullscreen">
@@ -91,6 +102,15 @@
         <!--生成二维码-->
         <activity android:name=".ui.QrCodeActivity"
             android:label="我的二维码"/>
+        <!--定位-->
+        <activity android:name=".ui.LocationActivity"
+            android:label="我的位置"/>
+        <!--百度定位AK-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="2dRmnvVlcGtFESqcofpLlnXNZkwnwmpZ" >
+        </meta-data>
+
     </application>
 
 </manifest>

@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.smartbutler">
 
-    <uses-permission android:name="android.permission.READ_LOGS"
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
         tools:ignore="ProtectedPermissions" />
-
 
 
     <!--允许联网 -->
@@ -23,32 +23,33 @@
 
 
     <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!--允许程序改变网络连接状态 -->
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!--读取联系人权限，上传联系人需要用到此权限 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!--外存储读权限，构建语法需要用到此权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!--配置权限，用来记录应用配置信息 -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
     <!--如需使用人脸识别，还要添加：摄相头权限，拍照需要用到 -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <!--短信权限-->
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <!-- 这个权限用于进行网络定位-->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!-- SD卡读取权限，用户写入离线定位数据-->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
-
 
     <!--读取系统信息，包含系统版本等信息，用作统计-->
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
@@ -61,11 +62,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        >
+        tools:ignore="GoogleAppIndexingWarning">
 
         <!--闪屏页-->
-        <activity android:name=".ui.SplashActivity"
+        <activity
+            android:name=".ui.SplashActivity"
             android:theme="@style/NoActivityFullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,42 +75,56 @@
             </intent-filter>
         </activity>
         <!--设置-->
-        <activity android:name=".ui.SettingActivity"
-            android:label="@string/text_setting"/>
+        <activity
+            android:name=".ui.SettingActivity"
+            android:label="@string/text_setting" />
         <!--登陆-->
         <activity android:name=".ui.LoginActivity" />
         <!--注册-->
-        <activity android:name=".ui.RegisteredActivity"
-            android:label="创建账号"/>
+        <activity
+            android:name=".ui.RegisteredActivity"
+            android:label="创建账号" />
         <!--主页-->
-        <activity android:name=".MainActivity"
-            android:hardwareAccelerated="true"/>
+        <activity
+            android:name=".MainActivity"
+            android:hardwareAccelerated="true" />
         <!--引导页-->
-        <activity android:name=".ui.GuideActivity"
-            android:theme="@style/NoActivityFullscreen"/>
+        <activity
+            android:name=".ui.GuideActivity"
+            android:theme="@style/NoActivityFullscreen" />
         <!--忘记/重置密码-->
-        <activity android:name=".ui.ForgetPasswordActivity"/>
+        <activity android:name=".ui.ForgetPasswordActivity" />
         <!--快递查询-->
-        <activity android:name=".ui.CourierActivity"
+        <activity
+            android:name=".ui.CourierActivity"
             android:label="快递查询" />
         <!--归属地查询-->
-        <activity android:name=".ui.PhoneActivity"
-            android:label="归属地查询"/>
+        <activity
+            android:name=".ui.PhoneActivity"
+            android:label="归属地查询" />
         <!--新闻Web详情-->
-        <activity android:name=".ui.WebViewActivity"/>
-        <!--智能短信提醒-->
-        <service android:name=".service.SmsService"/>
+        <activity android:name=".ui.WebViewActivity" />
         <!--生成二维码-->
-        <activity android:name=".ui.QrCodeActivity"
-            android:label="我的二维码"/>
+        <activity
+            android:name=".ui.QrCodeActivity"
+            android:label="我的二维码" />
         <!--定位-->
-        <activity android:name=".ui.LocationActivity"
-            android:label="我的位置"/>
-        <!--百度定位AK-->
+        <activity
+            android:name=".ui.LocationActivity"
+            android:label="我的位置" />
+
+        <!--百度地图、定位AK-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="2dRmnvVlcGtFESqcofpLlnXNZkwnwmpZ" >
-        </meta-data>
+            android:value="2dRmnvVlcGtFESqcofpLlnXNZkwnwmpZ"/>
+
+        <!--定位服务-->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <!--智能短信提醒-->
+        <service android:name=".service.SmsService" />
 
     </application>
 

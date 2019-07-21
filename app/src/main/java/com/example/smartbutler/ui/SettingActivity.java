@@ -35,6 +35,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private LinearLayout ll_share;
     //我的位置
     private LinearLayout ll_my_location;
+    //关于软件
+    private LinearLayout ll_about;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,6 +71,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
         ll_my_location = findViewById(R.id.ll_my_location);
         ll_my_location.setOnClickListener(this);
+
+        ll_about = findViewById(R.id.ll_about);
+        ll_about.setOnClickListener(this);
     }
 
     @Override
@@ -104,6 +109,10 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 //定位
             case R.id.ll_my_location:
                 startActivity(new Intent(this,LocationActivity.class));
+                break;
+                //关于软件
+            case R.id.ll_about:
+                startActivity(new Intent(this,AboutActivity.class));
                 break;
         }
     }
